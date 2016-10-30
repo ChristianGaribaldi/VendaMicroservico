@@ -59,9 +59,9 @@ class VendasController < ApplicationController
   end
 
   def atualiza_estoque_produto(venda)
-    produto_micro = ProdutoMicroservico.new
-    produto_venda = produto_micro.ler_produto(venda.produto_id)
+    produto_microservico = ProdutoMicroservico.new
+    produto_venda = produto_microservico.ler_produto(venda.produto_id)
     produto_venda.qtd_estoque -= venda.quantidade
-    produto_micro.atualizar_produto(produto_venda)
+    produto_microservico.atualizar_produto(produto_venda)
   end
 end
