@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Requisições HTTP para os outros microserviços
+gem 'http'
 
 gem 'rails', '4.2.6'
 

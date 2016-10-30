@@ -21,6 +21,7 @@ class VendasController < ApplicationController
     @venda = Venda.new(venda_params)
 
     if @venda.save
+      atualiza_estoque_produto(@venda)
       render json: @venda, status: :created, location: @venda
     else
       render json: @venda.errors, status: :unprocessable_entity
@@ -49,11 +50,18 @@ class VendasController < ApplicationController
 
   private
 
-    def set_venda
-      @venda = Venda.find(params[:id])
-    end
+  def set_venda
+    @venda = Venda.find(params[:id])
+  end
 
-    def venda_params
-      params.require(:venda).permit(:produto_id, :cliente_id, :quantidade, :valorVenda, :tipo_pgt, :num_cartao, :validade_cartao, :codigo_cartao, :desconto)
-    end
+  def venda_params
+    params.require(:venda).permit(:produto_id, :cliente_id, :quantidade, :valorVenda, :tipo_pgt, :num_cartao, :validade_cartao, :codigo_cartao, :desconto)
+  end
+
+  def atualiza_estoque_produto(venda)
+    produto_micro = ProdutoMicroservico.new
+    produto_venda = produto_micro.ler_produto(venda.produto_id)
+    produto_venda.qtd_estoque -= venda.quantidade
+    produto_micro.atualizar_produto(produto_venda)
+  end
 end

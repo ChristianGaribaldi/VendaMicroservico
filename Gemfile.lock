@@ -36,12 +36,24 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     builder (3.2.2)
     concurrent-ruby (1.0.2)
+    domain_name (0.5.20160826)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    http (2.0.3)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     json (1.8.3)
     loofah (2.0.3)
@@ -101,11 +113,15 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  http
   rails (= 4.2.6)
   rails-api
   spring
