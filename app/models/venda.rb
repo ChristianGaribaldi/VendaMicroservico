@@ -14,7 +14,7 @@ class Venda < ActiveRecord::Base
     produto_micro = ProdutoMicroservico.new
     produto_venda = produto_micro.ler_produto(produto_id)
 
-    venda_possivel =  !produto_venda.nil? && quantidade < produto_venda.qtd_estoque
+    venda_possivel =  !produto_venda.nil? && !quantidade.nil? && quantidade < produto_venda.qtd_estoque
     errors.add(:base, "A venda para o produto #{produto_venda.nome} não foi realizada: estoque (#{produto_venda.qtd_estoque} itens) insuficiente para a venda") if !venda_possivel
   end
 
