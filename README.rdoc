@@ -1,17 +1,17 @@
 == README
 
-*Aplicação Microserviço Venda - desenvolvido como exemplo para Trabalho de Conclusão de Curso.
+* Aplicação Microserviço Venda - desenvolvido como exemplo para Trabalho de Conclusão de Curso.
 
-*Fornece serviço de Venda via API REST (JSON).
+* Fornece serviço de Venda via API REST (JSON).
 
-*Ruby version: ruby 2.1.1p76 
+* Ruby version: ruby 2.1.1p76 
 
-*Rails version: Rails 4.2.6
+* Rails version: Rails 4.2.6
 
-*System dependencies: gem rails-api, SQLite3
+* System dependencies: gem rails-api, SQLite3
 
-*Configuration: rake bundle install
+* Configuration: rake bundle install
 
-*Database creation: rake db:migrate
+* Database creation: rake db:migrate
 
-*Database initialization: rake db:seed
+* Database initialization: rake db:seed
